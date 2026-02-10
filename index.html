@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Space That Belongs to Us 👻🦋</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="assets/images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- FLOATING BACKGROUND -->
+<div class="floating-bg" id="floatingBg"></div>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <h1>Made With Love, For You ♡ </h1>
+  <h2>You own the pieces I never shared</h2>
+  <p>Only you belong here -- Click on and Begin</p>
+  <img src="assets/images/intro.gif"  class="story-gif">
+  <button onclick="playSound('nextSound'); goToPage(2)">START 💞</button>
+</div>
+
+<!-- PAGE 2 -->
+<!-- <div class="page" id="page2">
+  <h1>How it all started?</h1>
+  <img src="assets/images/page2-1.gif" class="img">
+  <img src="assets/images/page2-2.gif" class="img">
+  <div id="page2Reasons" class="stack"></div>
+  <button id="continueBtn" onclick="playSound('nextSound'); showPage2Reason()">CONTINUE</button>
+  <button id="page2Next" onclick="playSound('nextSound'); goToPage(3)" style="display:none;">NEXT</button>
+
+</div> -->
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <h1>How It All Started?</h1>
+
+  <!-- GIF CONTAINER -->
+  <div class="gif-row">
+    <img src="assets/images/page2-2.gif" class="story-gif">
+    <img src="assets/images/page2-1.gif" class="story-gif">
+  </div>
+
+  <div id="page2Reasons" class="stack"></div>
+
+  <button id="continueBtn" onclick="playSound('nextSound'); showPage2Reason()">
+    CONTINUE
+  </button>
+
+  <button id="page2Next"
+          onclick="playSound('nextSound'); goToPage(3)"
+          style="display:none;">
+    NEXT
+  </button>
+</div>
+
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <h1>Reasons I Love You</h1>
+  <img src="assets/images/page3.gif"  class="story-gif">
+  <div class="boxes">
+    <div class="box" onclick="openEnvelope('I LOVE YOU ❤️  Because','I never expected your proposal, and yet my heart recognized you instantly.')">🎀 </div>
+    <div class="box" onclick="openEnvelope('I LOVE YOU ❤️  Because','You gave me space to choose, trusting me enough to let my decision be my own.')">🎀</div>
+    <div class="box" onclick="openEnvelope('I LOVE YOU ❤️  Because','You are always true—to yourself, to me, and to what we share.')">🎀</div>
+    <div class="box" onclick="openEnvelope('I LOVE YOU ❤️  Because','Even when fear whispered doubts, my heart knew you would treat me like a queen.')">🎀</div>
+    <div class="box" onclick="openEnvelope('I LOVE YOU ❤️  Because','In every failure, every right choice, every rise and fall—you are still here.')">🎀</div>
+    
+  </div>
+  <button onclick="playSound('nextSound'); goToPage(4)">NEXT</button>
+</div>
+
+<!-- PAGE 4 -->
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+  <h1>Promises For You 🎁</h1>
+  <img src="assets/images/page4.gif" class="story-gif">
+
+  <div class="boxes">
+
+    <div class="gift" onclick="openGiftWithAnimation('I promise to choose you, even on the days when love feels heavy, not easy.')">
+      <div class="gift-lid"></div>
+      <div class="gift-box"></div>
+      <div class="gift-bow"></div>
+    </div>
+
+    <div class="gift" onclick="openGiftWithAnimation('I promise to stand beside you in every rise and fall, never leaving you to face life alone.')">
+      <div class="gift-lid"></div>
+      <div class="gift-box"></div>
+      <div class="gift-bow"></div>
+    </div>
+
+    <div class="gift" onclick="openGiftWithAnimation('I promise to listen to you, even when words are hard to say.')">
+      <div class="gift-lid"></div>
+      <div class="gift-box"></div>
+      <div class="gift-bow"></div>
+    </div>
+
+    <div class="gift" onclick="openGiftWithAnimation('Even if the whole world stands against you, I will still choose you. Always..! Without fear.')">
+      <div class="gift-lid"></div>
+      <div class="gift-box"></div>
+      <div class="gift-bow"></div>
+    </div>
+
+  </div>
+
+  <button onclick="playSound('nextSound'); goToPage(5)">NEXT</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="page5">
+  <h1>Will you be my Valentine forever? 💘</h1>
+  <button class="yes" onclick="valentineYes()">YES 💕</button> 
+  <button class="no" onclick="valentineNo()">NO ☠️</button>
+
+  <!-- YES CARD (NO ENVELOPE) -->
+<div id="yesCard" class="yes-card hidden">
+  <button class="yes-close" onclick="closeYesCard()">✖</button>
+  <h2>Yyyaaahhhhh 💋</h2>
+  <p>I know you'll come here you have no other options 💕</p>
+  <img src="assets/images/page8-yes.gif" alt="love" class="yes-img" />
+  <button class="next-btn" onclick="yesNext()">NEXT →</button>
+
+</div>
+
+<!-- NO CARD -->
+<div id="noCard" class="yes-card hidden">
+  <button class="yes-close" onclick="closeNoCard()">✖</button>
+
+  <h2>WHATT ??? 😒 </h2>
+  <p>Don't dare to touch this button again 😡</p>
+
+  <img src="assets/images/page8-no.gif" alt="sad" class="yes-img" />
+</div>
+
+
+</div>
+
+
+
+<!-- PAGE 6 -->
+<div class="page" id="page6">
+  <h1>MY LOVE LETTER</h1>
+  <!-- Emoji only -->
+  <div class="love-emoji" onclick="openLoveLetter()"> 💌 </div>
+</div>
+
+<!-- LOVE LETTER MODAL (NO ENVELOPE) -->
+<div class="modal" id="loveLetterModal">
+  <div class="yes-card">
+    <button class="yes-close" onclick="closeLoveLetter()">✖</button>
+
+    <h2> My Love 💌</h2>
+
+    <p class="reason" style="white-space: pre-line; text-align:left;">
+    My cute lil pattotie 🩷,
+
+      From the moment I said yes to you on January 1st, 2021, my life stopped being just mine.
+    It became ours.
+    Not perfect, not easy but real, deep, and unforgettable.
+
+    We’ve fought more times than I can count.
+    We’ve hurt each other with words we didn’t mean.
+    Yet somehow, through every tear and every silence, my heart still runs back to you.
+    Even now, it only wants one thing to build more memories with you, no matter how much it hurts or heals.
+
+    I truly cannot imagine a future without you in it.
+    The thought of a life where you’re not beside me scares me more than any fight we’ve ever had.
+    After everything, I still believe that one day no matter what our parents say, yes or no we will be together.
+    Because this isn’t just love.
+    This is us choosing us.
+
+    I need you in ways words fail to explain.
+    I need you every second, every moment, even when I pretend I’m strong.
+    I never thought I could love someone this deeply, this madly, this completely
+    but loving you changed me.
+
+    Even when anger takes over and harsh words fall from my mouth, my heart breaks instantly.
+    Because hurting you hurts me more.
+    All I ever want, even in those moments, is to see you smile again.
+
+    And then there are the little things 
+    like the way you enjoy your food, so innocent and happy.
+    Those moments undo me.
+    They remind me why I fell, why I stay, and why I will always choose you.
+
+    No matter how hard life becomes, no matter who stands against us
+    my heart knows only one truth.
+
+    I choose you.
+    I need you.
+    I love you.
+    And I always will.
+
+    Your's Lovely,
+    Kuttyma 🩷
+    </p>
+  </div>
+</div>
+
+<!-- ENVELOPE MODAL -->
+<div class="modal" id="cardModal">
+  <div class="envelope">
+    <div class="envelope-back"></div>
+    <div class="envelope-flap"></div>
+
+    <div class="letter-card">
+      <span class="close" onclick="closeEnvelope()">✖</span>
+      <h3 id="cardTitle"></h3>
+      <p id="cardText"></p>
+      <img id="cardImg">
+      <button id="cardNextBtn" style="display:none;" onclick="cardNext()">NEXT →</button>
+  </div>
+</div>
+
+<!-- IMAGE ONLY MODAL -->
+<div class="modal" id="imageModal">
+  <img id="soloImg" alt="No response image">
+</div>
+
+<audio id="nextSound" src="assets/images/bubblesound.wav"></audio>
+<audio id="popSound" src="assets/images/gift_pop.mp3"></audio>
+<audio id="yesSound" src="assets/images/yes.wav"></audio>
+<audio id="noSound" src="assets/images/no.wav"></audio>
+
+<script src="js/script.js"></script>
+
+
+</body>
+</html>
+
