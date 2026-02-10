@@ -1,0 +1,770 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Poppins", Arial, sans-serif;
+  background: #ffe6ec;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* FLOATING BG */
+.floating-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.float {
+  position: absolute;
+  opacity: 0.25;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(110vh); }
+  to { transform: translateY(-120vh); }
+}
+
+/* PAGES */
+.page {
+  display: none;
+  min-height: 100vh;
+  padding: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.page.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img { width: 150px; margin: 14px; }
+
+/* BUTTONS */
+button {
+  padding: 12px 34px;
+  margin: 14px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ff7aa2, #ffb3c7);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(255,122,162,.4);
+  transition: all .25s ease;
+}
+
+button:hover { transform: translateY(-2px); }
+button:active { transform: scale(.96); }
+
+button.yes {
+  background: linear-gradient(135deg, #ff4d88, #ff85a2);
+}
+
+button.no {
+  background: linear-gradient(135deg, #ccc, #eee);
+  color: #555;
+}
+
+/* STACK */
+.stack div {
+  background: white;
+  padding: 12px 22px;
+  margin: 8px 0;
+  border-radius: 22px;
+  animation: slideFade .4s ease;
+}
+
+@keyframes slideFade {
+  from { opacity:0; transform: translateY(20px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+/* BOXES */
+/* .box {
+  width: 52px;
+  height: 52px;
+  background: white;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  animation: heartPulse 1.6s infinite;
+} */
+
+/* .boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;              space between gifts
+  flex-wrap: wrap;         responsive 
+  margin: 30px 0;
+  
+} */
+.boxes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+
+  flex-wrap: wrap;          /* allows wrap on mobile */
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+
+@keyframes heartPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* GIFTS */
+/* .gift {
+  width: 64px;
+  height: 64px;
+  background: #ffb3c7;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(255,122,162,.35);
+} */
+
+.gift {
+  width: 60px;
+  height: 60px;
+  background: #ffb3c7;
+  border-radius: 18px;
+  position: relative;
+  cursor: pointer;
+
+  box-shadow: 0 10px 22px rgba(255,122,162,.45);
+  transition: transform .25s ease;
+}
+
+.gift:hover {
+  transform: translateY(-6px) scale(1.05);
+}
+
+
+/* .gift::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  background: #ff6f91;
+  top: 28px;
+}
+
+.gift::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 100%;
+  background: #ff6f91;
+  left: 28px;
+} */
+/* 🎁 GIFT BOX – FIXED & CUTE */
+/* GIFT BOX */
+/* 🎁 GIFT BOX STRUCTURE */
+/* 🎁 GIFT STRUCTURE */
+.gift {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  background: #ffc1d6;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(255,105,180,.35);
+  transition: transform .3s ease;
+}
+
+.gift:hover {
+  transform: translateY(-6px);
+}
+
+/* LID */
+.gift-lid {
+  position: absolute;
+  top: -12px;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  background: #ff8fb3;
+  border-radius: 14px 14px 6px 6px;
+  transition: transform .4s ease;
+}
+
+/* BOX */
+.gift-box {
+  position: absolute;
+  inset: 0;
+  background: #ffc1d6;
+  border-radius: 14px;
+}
+
+/* BOW */
+.gift-bow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  background: #ff4d88;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* OPEN ANIMATION */
+.gift.open .gift-lid {
+  transform: translateY(-22px) rotate(-8deg);
+}
+
+
+/* ✨ OPEN ANIMATION */
+.gift.open .gift-lid {
+  transform: rotateX(140deg);
+}
+
+.gift.open .gift-content {
+  transform: translateX(-50%) translateY(-20px);
+  opacity: 1;
+}
+
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+/* ENVELOPE */
+.envelope {
+  position: relative;
+  width: 280px;
+  height: 180px;
+}
+
+.envelope-back {
+  position:absolute;
+  inset:0;
+  background:#ffeef3;
+  border:2px solid #ff9eb5;
+  border-radius:10px;
+}
+
+.envelope-flap {
+  position:absolute;
+  inset:0;
+  background:#ffd6e4;
+  clip-path: polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);
+  border:2px solid #ff9eb5;
+  border-bottom:none;
+}
+
+/* LETTER CARD */
+.letter-card {
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  right: 14px;
+  background: #fff0f6;
+  border-radius: 16px;
+  padding: 20px;
+  transform: translateY(90%);
+  opacity: 0;
+  transition: transform .6s ease, opacity .4s;
+}
+
+.envelope.open .letter-card {
+  transform: translateY(-55%);
+  opacity: 1;
+}
+
+.close {
+  position:absolute;
+  top:10px;
+  right:12px;
+  cursor:pointer;
+}
+
+/* IMAGE */
+#cardImg {
+  width: 160px;
+  border-radius: 14px;
+  margin-top: 14px;
+}
+
+
+
+
+
+/* =========================
+   YES CARD (NO ENVELOPE)
+   ========================= */
+
+.yes-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 320px;
+  max-width: 90%;
+  padding: 24px 20px 28px;
+
+  background: #fff0f6;
+  border-radius: 20px;
+  text-align: center;
+
+  box-shadow: 0 20px 40px rgba(255, 105, 180, 0.35);
+  z-index: 999;
+}
+
+.yes-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  padding: 0;
+  margin: 0;
+
+  font-size: 22px;
+  font-weight: 600;
+  color: #444;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.yes-close:hover {
+  color: #ff4d88;
+}
+
+
+
+.yes-card h2 {
+  margin-bottom: 10px;
+}
+
+.yes-card .reason {
+  font-size: 15px;
+  margin-bottom: 14px;
+}
+
+.yes-img {
+  width: 180px;
+  margin: 10px auto 18px;
+  display: block;
+}
+
+.next-btn {
+  background: linear-gradient(135deg, #ff8fb8, #ff5fa2);
+  border: none;
+  color: white;
+  padding: 12px 26px;
+  border-radius: 25px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+/* NO IMAGE MODAL FIX */
+#imageModal {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.4);
+  z-index: 999;
+}
+
+#imageModal img {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+#imageModal {
+  z-index: 2000;
+}
+
+.yes-card {
+  z-index: 1500;
+}
+
+.page {
+  z-index: 1;
+}
+
+/* LOVE LETTER EMOJI BUTTON */
+.love-emoji {
+  font-size: 64px;
+  cursor: pointer;
+  animation: pulseEmoji 1.6s infinite;
+  user-select: none;
+}
+
+@keyframes pulseEmoji {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* =========================
+   LOVE LETTER MODAL FIX
+   ========================= */
+
+/* #loveLetterModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 3000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+#loveLetterModal {
+  display: none;              /* stays hidden by default */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 3000;
+
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Love letter card scroll fix */
+#loveLetterModal .yes-card {
+  max-height: 80vh;
+  width: 500px;       /* slightly wider */
+  max-width: 92%;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#loveLetterModal .yes-card h2 {
+  text-align: center;
+}
+/* Smooth scroll (optional but nice) */
+#loveLetterModal .reason {
+  overflow-y: auto;
+  padding-right: 12px;
+  margin-top: 10px;
+  flex: 1;
+}
+
+/* scrollbar styling */
+#loveLetterModal .reason::-webkit-scrollbar {
+  width: 6px;
+}
+
+#loveLetterModal .reason::-webkit-scrollbar-thumb {
+  background: #ff9eb5;
+  border-radius: 10px;
+}
+
+#loveLetterModal .reason::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* =========================
+   PAGE 2 HEART BURST
+   ========================= */
+
+.heart-burst {
+  position: relative;
+  overflow: visible;
+}
+
+.heart-particle {
+  position: absolute;
+  font-size: 16px;
+  opacity: 0;
+  animation: heartFly 1.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes heartFly {
+  0% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), -90px) scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   PAGE 3 – HORIZONTAL REASONS
+   ========================= */
+
+#page3 .boxes {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* wraps on small screens */
+  margin-top: 20px;
+}
+
+/* Make boxes slightly bigger & clickable */
+#page3 .box {
+  width: 64px;
+  height: 64px;
+  font-size: 26px;
+  transition: transform 0.25s ease;
+}
+
+#page3 .box:hover {
+  transform: scale(1.15);
+}
+
+/* =========================
+   GIFT OPEN ANIMATION
+   ========================= */
+
+.gift.open {
+  animation: giftOpen .6s ease forwards;
+}
+
+@keyframes giftOpen {
+  0%   { transform: scale(1) rotate(0deg); }
+  30%  { transform: scale(1.05) rotate(-4deg); }
+  60%  { transform: scale(1.05) rotate(4deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ribbon split effect */
+.gift.open::before {
+  animation: ribbonSplitV .6s ease forwards;
+}
+
+.gift.open::after {
+  animation: ribbonSplitH .6s ease forwards;
+}
+
+@keyframes ribbonSplitV {
+  to { transform: translateX(-50%) scaleY(0); }
+}
+
+@keyframes ribbonSplitH {
+  to { transform: translateY(-50%) scaleX(0); }
+}
+/* =========================
+   HEART BURST EFFECT
+   ========================= */
+
+.heart {
+  position: fixed;
+  font-size: 18px;
+  pointer-events: none;
+  animation: heartFly 1.2s ease forwards;
+}
+
+@keyframes heartFly {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) scale(1.6);
+  }
+}
+
+/* PAGE 2 HEART BURST */
+.heart-burst {
+  position: absolute;
+  font-size: 18px;
+  animation: burstUp 1.2s ease-out forwards;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+@keyframes burstUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-80px) scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* =========================
+   📱 MOBILE POLISH
+   ========================= */
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Pages spacing */
+  .page {
+    padding: 18px 14px;
+  }
+
+  h1 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Images */
+  .img {
+    width: 130px;
+    margin: 12px auto;
+  }
+
+  /* Buttons – thumb friendly */
+  button {
+    padding: 14px 28px;
+    font-size: 14px;
+    margin: 10px;
+  }
+
+  /* Boxes (Reasons & Gifts) */
+  .boxes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 16px 0;
+  }
+
+  .box {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .gift {
+    width: 52px;
+    height: 52px;
+  }
+
+  .gift::before {
+    top: 22px;
+    height: 6px;
+  }
+
+  .gift::after {
+    left: 22px;
+    width: 6px;
+  }
+
+  /* YES / NO cards */
+  .yes-card {
+    width: 92%;
+    max-width: 340px;
+    padding: 20px 16px 24px;
+  }
+
+  .yes-img {
+    width: 160px;
+  }
+
+  .next-btn {
+    width: 100%;
+    padding: 14px;
+  }
+
+  /* Envelope modal */
+  .envelope {
+    width: 260px;
+    height: 170px;
+  }
+
+  .letter-card {
+    padding: 16px;
+  }
+
+  /* Love letter modal */
+  #loveLetterModal .yes-card {
+    width: 94%;
+    max-height: 85vh;
+  }
+
+  #loveLetterModal .reason {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Floating emoji button */
+  .love-emoji {
+    font-size: 56px;
+  }
+}
+
+/* PAGE 2 – GIF SIDE BY SIDE */
+.gif-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin: 20px 0;
+  flex-wrap: wrap; /* stacks nicely on small screens */
+}
+
+.story-gif {
+  width: 140px;
+  max-width: 45%;
+  animation: gifFloat 3s ease-in-out infinite;
+}
+
+/* soft floating animation */
+@keyframes gifFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
